@@ -95,6 +95,20 @@ map! <F3> <C-R>=strftime('%c')<CR><Esc>
 map <F4> 4<down>An.a.<Esc>2<down>An.a.<Esc>2<down>An.a.<Esc>2<down>An.a.<Esc>2<down><end>5<left>4x3<down>i no<esc>6<down><end>5<left>4x3 
 map <F5> <ESC>:set number!<CR>
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+""" Status line for Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"""
+
 set hlsearch
 set nomousehide
 set number
@@ -107,6 +121,3 @@ endif
 syntax on
 set background=dark
 colorscheme solarized
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
