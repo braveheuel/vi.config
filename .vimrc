@@ -113,6 +113,10 @@ set number
 set tabpagemax=20
 set cursorline
 
+""" Set Python Version
+
+let g:pymode_python = 'python3'
+
 """ Airline modes
 set laststatus=2
 let g:airline_powerline_fonts = 1
