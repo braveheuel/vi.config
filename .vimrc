@@ -120,3 +120,6 @@ let g:pymode_python = 'python3'
 """ Airline modes
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+""" After everything
+source ~/.vimrc.after
