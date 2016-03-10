@@ -116,3 +116,6 @@ set cursorline
 """ Airline modes
 set laststatus=2
 let g:airline_powerline_fonts = 1
+
+""" After everything
+source ~/.vimrc.after
