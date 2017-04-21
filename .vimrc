@@ -5,6 +5,7 @@ endif
 
 " Execute pathogen
 execute pathogen#infect()
+filetype plugin indent on
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -70,7 +71,7 @@ let g:pymode_python = 'python3'
 
 
 " Tab control
-set noexpandtab " tabs ftw
+set expandtab " tabs ftw
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=4 " the visible width of tabs
 set softtabstop=4 " edit as if the tabs are 4 characters wide
