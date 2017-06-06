@@ -5,6 +5,8 @@ endif
 
 " Execute pathogen
 execute pathogen#infect()
+syntax on
+filetype plugin indent on
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -41,7 +43,6 @@ if has('mouse')
 endif
 
 set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors"
-syntax on
 set hlsearch
 
 " Toggle Line Numbering
@@ -72,9 +73,9 @@ let g:pymode_python = 'python3'
 " Tab control
 set noexpandtab " tabs ftw
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
-set tabstop=4 " the visible width of tabs
-set softtabstop=4 " edit as if the tabs are 4 characters wide
-set shiftwidth=4 " number of spaces to use for indent and unindent
+set tabstop=8 " the visible width of tabs
+set softtabstop=8 " edit as if the tabs are 4 characters wide
+set shiftwidth=8 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
 set clipboard=unnamed
@@ -183,6 +184,11 @@ let g:ctrlp_custom_ignore = {
 
 " search the nearest ancestor that contains .git, .hg, .svn
 let g:ctrlp_working_path_mode = 2
+
+""" Local Specific Settings
+if filereadable(expand("~/.vim/local"))
+	source ~/.vim/local
+endif
 
 """ After everything
 source ~/.vimrc.after
