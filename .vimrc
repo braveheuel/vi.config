@@ -71,7 +71,7 @@ let g:pymode_python = 'python3'
 
 
 " Tab control
-set noexpandtab " tabs ftw
+set expandtab " tabs ftw
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=8 " the visible width of tabs
 set softtabstop=8 " edit as if the tabs are 4 characters wide
