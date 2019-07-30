@@ -61,6 +61,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec = '/usr/bin/python3'
 """
 
 set tabpagemax=20
@@ -71,10 +72,10 @@ let g:pymode_python = 'python3'
 
 
 " Tab control
-set expandtab " tabs ftw
+set noexpandtab " tabs ftw
 set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
 set tabstop=8 " the visible width of tabs
-set softtabstop=8 " edit as if the tabs are 4 characters wide
+set softtabstop=8 " edit as if the tabs are 8 characters wide
 set shiftwidth=8 " number of spaces to use for indent and unindent
 set shiftround " round indent to a multiple of 'shiftwidth'
 
@@ -161,7 +162,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " close NERDTree after a file is opened
-let g:NERDTreeQuitOnOpen=0
+let g:NERDTreeQuitOnOpen=1
 " show hidden files in NERDTree
 let NERDTreeShowHidden=1
 " Toggle NERDTree
