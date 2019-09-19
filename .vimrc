@@ -50,7 +50,14 @@ map <F5> <ESC>:set number!<CR>
 set number
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
+"cmap w!! w !sudo tee % >/dev/null <CR>l<CR>
+fun! SuperWrite()
+        write !sudo tee >/dev/null %
+        " Or with :silent (but that doesn't seem to work for everyone)
+        "silent write !sudo tee %
+        edit!
+endfun
+cmap w!! :call SuperWrite() <CR><CR>
 
 """ Status line for Syntastic
 set statusline+=%#warningmsg#
