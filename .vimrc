@@ -1,8 +1,3 @@
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Execute pathogen
 execute pathogen#infect()
 syntax on
@@ -15,27 +10,10 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backupdir=/tmp/,.
-  set backup		" keep a backup file
-endif
-
 set history=100		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
 
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
@@ -47,6 +25,7 @@ set hlsearch
 
 " Toggle Line Numbering
 map <F5> <ESC>:set number!<CR>
+set relativenumber
 set number
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
@@ -116,29 +95,10 @@ set encoding=utf8
 let base16colorspace=256  " Access colors present in 256 colorspace"
 set background=dark
 
-set number
-
 set autoindent " automatically set indent of new line
 set smartindent
 
 set laststatus=2 " show the satus line all the time
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Mappings
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let mapleader=","
-
-map <leader>ev :e! ~/.vimrc<cr> " edit ~/.vimrc
-
-map <leader>wc :wincmd q<cr>
-
-" moving up and down work as you would expect
-nnoremap <silent> j gj
-nnoremap <silent> k gk
-
-" helpers for dealing with other people's code
-nmap \t :set ts=4 sts=4 sw=4 noet<cr>
-nmap \s :set ts=4 sts=4 sw=4 et<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Functions
@@ -204,6 +164,19 @@ set undofile
 """ Local Specific Settings
 if filereadable(expand("~/.vim/local"))
 	source ~/.vim/local
+endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Allow File Search
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set path+=**
+set wildmenu
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Snippets
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if filereadable(expand("~/vim/snippetsrc"))
+	source ~/.vim/snippetsrc
 endif
 
 """ After everything
